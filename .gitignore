@@ -2,5 +2,6 @@ node_modules
 .next
 .next-buildcheck
 .env.local
+.env.vercel.local
 out
 npm-debug.log*

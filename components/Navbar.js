@@ -30,13 +30,29 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-md dark:bg-white/95 dark:text-black">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 border-b border-border py-5 dark:border-black/10">
-          <Link href="/" className="group flex items-center gap-3">
-            <div className="rounded-full bg-surface px-3 py-2 text-sm font-semibold tracking-[0.22em] text-foreground shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-md dark:bg-white dark:text-black dark:ring-1 dark:ring-black/10">
-              [ AA ]
+          <Link href="/" className="group flex min-w-0 items-center gap-4">
+            <div className="relative shrink-0 overflow-hidden rounded-[24px] border border-border/80 bg-surface/95 px-4 py-3 shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-md dark:border-black/10 dark:bg-white dark:text-black">
+              <div className="absolute inset-y-2 left-3 w-px bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent opacity-80" />
+              <div className="pl-3">
+                <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-muted dark:text-black/45">Literary</p>
+                <div className="mt-1 flex items-center gap-2">
+                  <span className="font-serif text-xl leading-none text-foreground dark:text-black">A</span>
+                  <span className="h-4 w-px bg-border dark:bg-black/10" />
+                  <span className="font-serif text-xl leading-none text-foreground dark:text-black">A</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="font-display text-[1.3rem] leading-none dark:text-black">Author Archive</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.24em] text-muted dark:text-black/60">Poetry and gallery</p>
+
+            <div className="min-w-0">
+              <p className="truncate font-display text-[1.45rem] leading-none tracking-[-0.02em] text-foreground dark:text-black sm:text-[1.7rem]">
+                Author Archive
+              </p>
+              <div className="mt-2 flex items-center gap-3">
+                <span className="h-px w-7 bg-gradient-to-r from-[var(--accent)] to-transparent" />
+                <p className="truncate text-[0.68rem] uppercase tracking-[0.32em] text-muted dark:text-black/55 sm:text-[0.72rem]">
+                  Poetry and gallery
+                </p>
+              </div>
             </div>
           </Link>
 

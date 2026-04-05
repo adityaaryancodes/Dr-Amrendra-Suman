@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "hash-admin": "node scripts/create-admin.mjs",
-    "sync:collection": "node scripts/sync-collection.mjs"
+    "sync:collection": "node scripts/sync-collection.mjs",
+    "export:vercel-env": "node scripts/export-vercel-env.mjs"
   },
   "dependencies": {
     "@fontsource/dm-serif-display": "^5.2.8",
