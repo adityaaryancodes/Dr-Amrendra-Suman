@@ -1,0 +1,191 @@
+@import "@fontsource/inter/latin.css";
+@import "@fontsource/playfair-display/latin.css";
+@import "@fontsource/dm-serif-display/latin.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-alt: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --background: #f7f5f2;
+  --foreground: #2a2a2a;
+  --surface: #ffffff;
+  --border: #e8e6e3;
+  --accent: #e6a57e;
+  --accent-soft: rgba(230, 165, 126, 0.16);
+  --secondary-accent: #6b7a8f;
+  --secondary-soft: rgba(107, 122, 143, 0.12);
+  --muted: #6d6d6d;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #181a1d;
+  --foreground: #f4efe9;
+  --surface: #22252a;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #e6a57e;
+  --accent-soft: rgba(230, 165, 126, 0.14);
+  --secondary-accent: #93a0b1;
+  --secondary-soft: rgba(147, 160, 177, 0.12);
+  --muted: #b9bcc3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(230, 165, 126, 0.12), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(107, 122, 143, 0.09), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(247, 245, 242, 0)),
+    var(--background);
+  color: var(--foreground);
+  font-size: 16px;
+}
+
+::selection {
+  background: rgba(230, 165, 126, 0.28);
+}
+
+.poetry-copy {
+  white-space: pre-line;
+}
+
+.glass-panel {
+  background: var(--surface);
+  box-shadow: 0 14px 40px rgba(42, 42, 42, 0.06);
+}
+
+.editorial-rule {
+  border-top: 1px solid var(--border);
+}
+
+.soft-button {
+  background-image: linear-gradient(135deg, var(--accent), #efbea1);
+}
+
+.soft-button-secondary {
+  background: var(--surface);
+  box-shadow: 0 6px 24px rgba(42, 42, 42, 0.05);
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  animation: section-fade-up 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+.section-bridge-line {
+  transform: scaleX(0.2);
+  transform-origin: center;
+  opacity: 0.4;
+  animation: bridge-grow 1.05s ease-out forwards;
+}
+
+.section-bridge-dot {
+  animation: bridge-pulse 2.8s ease-in-out infinite 0.35s;
+}
+
+.section-bridge-orb {
+  box-shadow: 0 0 0 0 rgba(230, 165, 126, 0.24);
+  animation: orb-bloom 2.4s ease-in-out infinite 0.6s;
+}
+
+.literary-quote-band {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(242, 195, 139, 0.18), transparent 24%),
+    radial-gradient(circle at 80% 30%, rgba(147, 160, 177, 0.18), transparent 22%),
+    linear-gradient(135deg, #171513 0%, #2a211d 48%, #1a212b 100%);
+}
+
+.literary-quote-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: translateX(-100%);
+  animation: quote-sheen 4.8s ease-in-out infinite 0.8s;
+}
+
+@keyframes section-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bridge-grow {
+  from {
+    opacity: 0.3;
+    transform: scaleX(0.2);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes bridge-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes orb-bloom {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(230, 165, 126, 0.24);
+  }
+
+  50% {
+    transform: scale(1.16);
+    box-shadow: 0 0 0 10px rgba(230, 165, 126, 0);
+  }
+}
+
+@keyframes quote-sheen {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+
+  55% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal,
+  .section-bridge-line,
+  .section-bridge-dot,
+  .section-bridge-orb,
+  .literary-quote-band::before {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
