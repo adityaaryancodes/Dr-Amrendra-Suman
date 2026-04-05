@@ -38,7 +38,7 @@ export default function Navbar() {
                 <div className="mt-1 flex items-center gap-2">
                   <span className="font-serif text-xl leading-none text-foreground dark:text-black">A</span>
                   <span className="h-4 w-px bg-border dark:bg-black/10" />
-                  <span className="font-serif text-xl leading-none text-foreground dark:text-black">A</span>
+                  <span className="font-serif text-xl leading-none text-foreground dark:text-black">S</span>
                 </div>
               </div>
             </div>

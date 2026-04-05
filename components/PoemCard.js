@@ -2,6 +2,8 @@ import Link from "next/link";
 import { formatDisplayDate, getReadingTimeLabel, truncateText } from "@/lib/utils";
 
 export default function PoemCard({ post }) {
+  const showPreviewText = post.type === "gallery";
+
   return (
     <article className="group overflow-hidden rounded-[22px] bg-surface shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
       <Link href={`/post/${post.id}`} className="block">
@@ -31,9 +33,9 @@ export default function PoemCard({ post }) {
               <span>{getReadingTimeLabel(post.content)}</span>
             </div>
           </div>
-          <div className="space-y-3">
+          <div className={showPreviewText ? "space-y-3" : "space-y-1"}>
             <h3 className="font-display text-xl leading-snug text-foreground sm:text-[1.35rem]">{post.title}</h3>
-            <p className="poetry-copy text-[15px] leading-7 text-muted">{truncateText(post.content, 220)}</p>
+            {showPreviewText ? <p className="poetry-copy text-[15px] leading-7 text-muted">{truncateText(post.content, 220)}</p> : null}
           </div>
         </div>
       </Link>
